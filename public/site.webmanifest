@@ -1,0 +1,30 @@
+{
+  "name": "KJA PT LEDSONS SOLUSI BISNIS",
+  "short_name": "LEDSONS",
+  "description": "Kantor Jasa Akuntan (KJA) PT LEDSONS SOLUSI BISNIS — jasa pembukuan, kompilasi laporan keuangan, perpajakan, konsultasi manajemen, dan teknologi informasi akuntansi.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "id",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

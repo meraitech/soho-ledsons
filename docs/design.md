@@ -1,0 +1,22 @@
+# soho-ledsons direction (sebelumnya template Sparkdesign)
+
+1. Brand: Sparkdesign is a fictional collaborative design workspace, open enough to suit independent makers and teams.
+2. Composition: split hero, three benefits, two audience rows, asymmetric feature cards, a photographic workflow, an editorial collaboration spread, a two-column project library, compact plan rows, a form beside FAQ, a closing action surrounded by photos, and a quiet footer.
+3. Motif: overlapping rounded frames, repeated in the original logo, collaborative previews, media cards, and workspace form.
+4. Navigation: a fixed, thin, divided wordmark rail with active links for benefits, process, features, and plans, plus a small outline capsule action. A native mobile dialog replaces the rail; the footer links to every main section.
+5. Hero: a large rounded photographic project carousel with collaboration cards, small keyboard-operated pagination dots, and a simple 350ms opacity crossfade. Automatic advancement pauses on hover, offscreen, in hidden tabs, and with reduced motion; manual interaction stops it.
+6. Radius: pill controls, 24px cards, 32px hero media; miniature UI uses proportionally smaller 8–16px corners.
+7. Typography: Instrument Sans throughout. Headlines, body copy, labels, example documents, and controls share one type family. Use size, weight, spacing, and alignment to create hierarchy.
+8. Palette: neutral white/black foundations and restrained project surfaces; natural photography supplies most color. Both themes preserve the same geometry and contrast hierarchy. The library uses prominent project names and photographic compositions, with simple title cards or covers where they belong to the sample work.
+9. Density: 1328px content rail, 56px desktop gutters, 60px desktop hero and 48px section headings; adapt below 992/768/480px. Workflow, collaboration, and library use 64px desktop and 44px mobile padding; plans reduce the bottom gap before the workspace. Account for both neighbors when setting section spacing.
+10. Motion: one-time opacity/position reveals, opposing audience rows linked to scroll progress, selectable workflow photographs within a reserved stage, and brief hover/focus/press responses. Reduced motion reveals section content directly. Closing photos respond to desktop mouse position through springs, with different depths and slight rotations; mobile and reduced-motion layouts keep them static.
+
+The workflow has a Collect/Discuss/Present tab rail above a large photographic stage. Each view uses one contextual treatment: a working note, a sample comment, or a presentation title. This keeps the process readable without repeating the feature section's miniature interfaces.
+
+Collaboration pairs concise copy about sharing drafts with an asymmetric process photograph, a plain caption beneath it, and a workflow link. The library follows with four original photographic projects: Still Form, Common Ground, Between the Lines, and Look Again. Its heading aligns left; Brand, Ideas, and Presentations filters and native preview dialogs provide practical briefs and three suggested starting steps.
+
+Plans use two divided rows, each presenting a name, description, price, and choice action. Personal is Free; Together is $14 per person per month. Choosing one selects solo or team mode in the workspace form and reopens a previously completed preview. There is no checkout or account creation.
+
+Copy, branding, and mock project interfaces are original to Sparkdesign. The seven photographs retain their Unsplash license and credits in `lib/images.ts` and README. Forms and previews are local demonstrations: no emails are sent, no project is exported or saved, and no account or payment is created. Keep actions useful within the single page. No footer creator credit.
+
+Tailwind v4 utilities in each component own layout, typography, buttons, visual details, responsive rules, and interaction states. `app/globals.css` contains theme tokens, Tailwind configuration, global accessibility defaults, and reduced-motion rules; there are no CSS Modules. `workflow.tsx`, `project-library.tsx`, `together.tsx`, and `plans.tsx` hold the additional section content; `lib/workspace-choice.ts` connects plan actions to `workspace.tsx`. Keep the installed Next.js/React/Motion stack, metadata, original icon assets, social preview, README, and responsive/keyboard behavior aligned when adapting the template.
