@@ -10,11 +10,11 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 import { Logo } from "@/components/logo";
 
 const LINKS = [
-  { label: "Tentang", id: "tentang" },
-  { label: "Layanan", id: "layanan" },
-  { label: "Kenapa Ledsons", id: "kenapa" },
-  { label: "Klien", id: "klien" },
-  { label: "Kontak", id: "kontak" },
+  { label: "Tentang", id: "together" },
+  { label: "Kenapa", id: "why" },
+  { label: "Layanan", id: "features" },
+  { label: "Klien", id: "library" },
+  { label: "Kontak", id: "workspace" },
 ] as const;
 
 type CloseIntent =
@@ -126,7 +126,7 @@ export function Nav(): ReactNode {
             ref={homeLink}
             className="flex border-r border-border pr-8 max-[1200px]:pr-5 max-[992px]:border-0 max-[992px]:p-0"
             href="#top"
-            aria-label="Beranda KJA PT LEDSONS SOLUSI BISNIS"
+            aria-label="Beranda LEDSONS"
           >
             <Logo />
           </a>
@@ -146,7 +146,7 @@ export function Nav(): ReactNode {
             ))}
           </nav>
           <a
-            href="#kontak"
+            href="#workspace"
             className={`ml-auto inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-base leading-5 font-medium whitespace-nowrap text-foreground transition-[background,transform,translate,scale,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-muted hover:shadow-[0_5px_12px_#00000014] active:translate-y-0 active:scale-98 max-[1200px]:text-sm max-[768px]:hidden max-[480px]:text-sm max-[992px]:[&_svg]:hidden`}
           >
             Konsultasi <ArrowUpRight size={15} strokeWidth={1.5} />
@@ -216,14 +216,14 @@ export function Nav(): ReactNode {
           ))}
         </nav>
         <p>
-          Kantor Jasa Akuntan.
+          Mitra solusi bisnis.
           <br />
-          Mitra solusi bisnis terpercaya Anda.
+          Rapi, patuh, dan terpercaya.
         </p>
         <a
           className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-transparent bg-foreground px-6 py-3.25 text-base leading-5 font-medium whitespace-nowrap text-background transition-[background,transform,translate,scale,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_5px_12px_#00000014] active:translate-y-0 active:scale-98 max-[480px]:text-sm"
-          href="#kontak"
-          onClick={(event) => closeForNavigation(event, "kontak")}
+          href="#workspace"
+          onClick={(event) => closeForNavigation(event, "workspace")}
         >
           Hubungi kami <ArrowUpRight size={16} strokeWidth={1.5} />
         </a>

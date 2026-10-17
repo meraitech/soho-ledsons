@@ -8,15 +8,14 @@ import {
   type MotionValue,
 } from "motion/react";
 import { useEffect, useRef, type ReactNode } from "react";
-import { ArrowUpRight } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { Reveal } from "@/components/reveal";
+import { SignupForm } from "@/components/signup-form";
 import { images } from "@/lib/images";
 import { useReducedMotion } from "@/lib/motion";
-import { siteConfig } from "@/lib/metadata";
 
 const TILES = [
-  { photo: images.desk, depth: 22, tilt: 1.2 },
+  { photo: images.portraitOne, depth: 22, tilt: 1.2 },
   { photo: images.process, depth: 28, tilt: -1.4 },
   { photo: images.chair, depth: 14, tilt: -1.1 },
   { photo: images.portraitTwo, depth: 18, tilt: 1.2 },
@@ -217,7 +216,7 @@ export function FinalCta(): ReactNode {
   return (
     <section
       ref={ref}
-      id="mulai"
+      id="start"
       className="relative overflow-clip pt-24 pb-43 max-[768px]:pt-18 max-[768px]:pb-25"
       aria-labelledby="closing-heading"
     >
@@ -241,28 +240,16 @@ export function FinalCta(): ReactNode {
             id="closing-heading"
             className="text-[clamp(36px,3.4vw,48px)] leading-[1.2] font-normal tracking-[-0.035em] text-balance max-[992px]:text-[42px] max-[768px]:text-[38px] max-[480px]:text-[34px]"
           >
-            LEDSONS siap menjadi mitra solusi bisnis terpercaya Anda.
+            Mitra tepat untuk
+            <br />
+            bisnis yang tumbuh.
           </h2>
           <p className="text-lg leading-normal tracking-[-0.025em] text-pretty text-muted-foreground max-[768px]:text-base">
-            Mari tumbuh bersama, dengan pondasi yang lebih kuat dan arah yang
-            lebih jelas.
+            Keuangan rapi, pajak patuh, bisnis tenang.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <a
-              href="#kontak"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-transparent bg-foreground px-6 py-3.25 text-base leading-5 font-medium whitespace-nowrap text-background transition-[background,transform,translate,scale,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_5px_12px_#00000014] active:translate-y-0 active:scale-98 max-[480px]:text-sm"
-            >
-              Hubungi kami <ArrowUpRight size={16} strokeWidth={1.5} />
-            </a>
-            <a
-              href={`mailto:${siteConfig.contact.email}`}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-border bg-background px-6 py-3.25 text-base leading-5 font-medium whitespace-nowrap text-foreground transition-[background,transform,translate,scale,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-muted active:translate-y-0 active:scale-98 max-[480px]:text-sm"
-            >
-              {siteConfig.contact.email}
-            </a>
-          </div>
+          <SignupForm />
           <p className="mt-6 text-xs leading-normal text-muted-foreground">
-            {siteConfig.contact.address} • {siteConfig.contact.phone2}
+            Jl. Dr. Saharjo No. 96G, Jakarta • (021) 830-9924
           </p>
         </Reveal>
       </div>

@@ -1,6 +1,6 @@
 # soho-ledsons — KJA PT LEDSONS SOLUSI BISNIS
 
-Situs profil perusahaan Kantor Jasa Akuntan (KJA) PT LEDSONS SOLUSI BISNIS. Seluruh konten berbahasa Indonesia.
+Situs profil perusahaan Kantor Jasa Akuntan (KJA) PT LEDSONS SOLUSI BISNIS. Seluruh konten berbahasa Indonesia. Struktur desain, warna, foto, dan interaksi sama dengan template asli — hanya copywriting yang diganti dengan porsi teks yang sama.
 
 Dibangun dengan Next.js 16.3.4, React 19.2.8, TypeScript strict, Tailwind CSS v4, Motion, next-themes, dan Lucide.
 
@@ -35,20 +35,22 @@ Konfigurasi terpusat di `lib/metadata.ts` (`siteConfig`), `public/site.webmanife
 
 ## Struktur halaman (`app/page.tsx`)
 
-| Bagian         | Komponen              | ID                | Isi                                                                           |
-| -------------- | --------------------- | ----------------- | ----------------------------------------------------------------------------- |
-| Navigasi       | `nav.tsx`, `logo.tsx` | —                 | Tentang, Layanan, Kenapa Ledsons, Klien, Kontak                               |
-| Hero           | `hero.tsx`            | `#top`            | KJA badge, H1 PT LEDSONS SOLUSI BISNIS, CTA layanan/kontak, sorotan 3 layanan |
-| Tentang        | `together.tsx`        | `#tentang`        | Profil KJA, sejarah 2024, pesan pendiri                                       |
-| Layanan        | `features.tsx`        | `#layanan`        | 5 layanan: pembukuan, pajak, laporan keuangan, TI akuntansi, konsultasi       |
-| Kenapa Ledsons | `benefits.tsx`        | `#kenapa`         | Pelayanan pelanggan, layanan unggulan, mitra usaha, jaringan bisnis           |
-| Visi & Misi    | `workflow.tsx`        | `#visi-misi`      | Tab Visi / Misi / Prinsip                                                     |
-| Nilai inti     | `plans.tsx`           | `#nilai`          | 6 nilai perusahaan                                                            |
-| Industri       | `audience.tsx`        | `#industri`       | Marquee sektor usaha                                                          |
-| Klien          | `project-library.tsx` | `#klien`          | Daftar klien per industri                                                     |
-| Kontak + FAQ   | `workspace.tsx`       | `#kontak`, `#faq` | Info kontak resmi + formulir demo lokal + FAQ                                 |
-| Penutup        | `final-cta.tsx`       | `#mulai`          | CTA mitra terpercaya                                                          |
-| Footer         | `footer.tsx`          | —                 | Navigasi + kontak resmi                                                       |
+Urutan dan ID section sama dengan template asli; hanya label dan isi teks yang berbahasa Indonesia dan pendek.
+
+| Bagian                              | Komponen                           | Isi singkat                                                      |
+| ----------------------------------- | ---------------------------------- | ---------------------------------------------------------------- |
+| Navigasi                            | `nav.tsx`, `logo.tsx`              | Tentang, Kenapa, Layanan, Klien, Kontak                          |
+| Hero                                | `hero.tsx`, `signup-form.tsx`      | Badge KJA, H1 2 baris, 1 sub kalimat, carousel 3 sorotan layanan |
+| Manfaat (`#why`)                    | `benefits.tsx`                     | 3 kartu: pembukuan tertib, pajak patuh, siap bertumbuh           |
+| Sektor (`#who`)                     | `audience.tsx`                     | 2 baris foto sektor usaha                                        |
+| Layanan (`#features`)               | `features.tsx`                     | Tab UMKM/Perusahaan + 4 kartu interaktif                         |
+| Alur (`#workflow`)                  | `workflow.tsx`                     | Tab Pembukuan/Perpajakan/Pelaporan + stage foto                  |
+| Tentang (`#together`)               | `together.tsx`                     | 2 paragraf singkat + 1 foto                                      |
+| Layanan (`#library`)                | `project-library.tsx`              | 4 kartu + filter + dialog pratinjau                              |
+| Paket (`#plans`)                    | `plans.tsx`                        | 2 baris: Konsultasi Awal, Pendampingan Rutin                     |
+| Kontak + FAQ (`#workspace`, `#faq`) | `workspace.tsx`                    | Form demo lokal + FAQ singkat                                    |
+| Penutup (`#start`)                  | `final-cta.tsx`, `signup-form.tsx` | CTA + photo tiles                                                |
+| Footer                              | `footer.tsx`                       | Navigasi + kembali ke atas                                       |
 
 Formulir bersifat demo lokal: tidak mengirim email, tidak membuat akun, tidak menyimpan data ke server. Untuk komunikasi resmi gunakan email/telepon di atas.
 
@@ -62,7 +64,3 @@ Formulir bersifat demo lokal: tidak mengirim email, tidak membuat akun, tidak me
 | `npm run typecheck` | Cek tipe TypeScript       |
 | `npm run lint`      | ESLint                    |
 | `npm run format`    | Format Prettier           |
-
-## Deployment
-
-Gunakan host yang mendukung server Node.js Next.js. Instal `npm ci`, build `npm run build`, jalankan `npm start`. Optimasi gambar Next.js default (bukan static export). Sebelum publikasi, ganti `public/og-image.png` dan ikon dengan logo resmi LEDSONS bila sudah tersedia.

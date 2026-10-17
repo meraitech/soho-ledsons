@@ -1,12 +1,12 @@
 import { Nav } from "@/components/nav";
 import { Hero } from "@/components/hero";
-import { Together } from "@/components/together";
-import { Features } from "@/components/features";
 import { Benefits } from "@/components/benefits";
-import { Workflow } from "@/components/workflow";
-import { Plans } from "@/components/plans";
 import { Audience } from "@/components/audience";
+import { Features } from "@/components/features";
+import { Workflow } from "@/components/workflow";
 import { ProjectLibrary } from "@/components/project-library";
+import { Together } from "@/components/together";
+import { Plans } from "@/components/plans";
 import { Workspace } from "@/components/workspace";
 import { FinalCta } from "@/components/final-cta";
 import { Footer } from "@/components/footer";
@@ -34,13 +34,13 @@ export default function HomePage(): ReactNode {
       <Nav />
       <main id="main-content">
         <Hero />
-        <Together />
-        <Features />
         <Benefits />
-        <Workflow />
-        <Plans />
         <Audience />
+        <Features />
+        <Workflow />
+        <Together />
         <ProjectLibrary />
+        <Plans />
         <Workspace />
         <FinalCta />
       </main>

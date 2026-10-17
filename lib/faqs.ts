@@ -1,32 +1,32 @@
 export const faqs = [
   {
-    question: "Layanan apa saja yang disediakan LEDSONS?",
+    question: "Layanan apa saja yang tersedia?",
     answer:
-      "Kami menyediakan jasa pembukuan, penyusunan dan kompilasi laporan keuangan, konsultasi manajemen dan keuangan, jasa perpajakan, prosedur yang disepakati atas informasi keuangan, serta jasa teknologi informasi akuntansi termasuk implementasi software akuntansi.",
+      "Pembukuan, kompilasi laporan keuangan, perpajakan, konsultasi manajemen, dan teknologi informasi akuntansi.",
   },
   {
-    question: "Apakah LEDSONS adalah Kantor Jasa Akuntan resmi?",
+    question: "Siapa yang cocok menjadi klien?",
     answer:
-      "Ya. KJA PT LEDSONS SOLUSI BISNIS adalah Kantor Jasa Akuntan yang menjalankan setiap penugasan secara profesional dan independen, mengacu pada ketentuan yang berlaku serta prinsip akuntansi yang berterima umum.",
+      "UMKM hingga korporasi dari berbagai sektor: dagang, jasa, manufaktur, properti, dan lainnya.",
   },
   {
-    question: "Siapa saja yang cocok menjadi klien LEDSONS?",
+    question: "Bagaimana cara memulai?",
     answer:
-      "UMKM, perusahaan berkembang, hingga korporasi dari berbagai sektor — pertanian, otomotif, jasa, konstruksi, IT dan telekomunikasi, hotel dan properti, kimia, energi, tekstil, manufaktur, hingga perikanan.",
+      "Isi formulir singkat di halaman ini atau hubungi email/telepon kami. Kami hubungi kembali untuk diskusi awal.",
   },
   {
-    question: "Bagaimana cara memulai kerja sama?",
+    question: "Apakah laporan sesuai standar?",
     answer:
-      "Hubungi kami melalui email, telepon, atau formulir konsultasi di halaman ini. Kami akan berdiskusi mengenai kebutuhan Anda, memetakan ruang lingkup pekerjaan, lalu menyampaikan proposal layanan yang paling tepat.",
+      "Ya. Laporan disusun jelas, terstruktur, dan sesuai standar untuk kebutuhan internal maupun eksternal.",
   },
   {
-    question: "Apakah laporan keuangan disusun sesuai standar?",
+    question: "Apakah data saya aman?",
     answer:
-      "Ya. Laporan keuangan disusun secara jelas, terstruktur, dan sesuai standar untuk kebutuhan internal maupun eksternal — termasuk kebutuhan perbankan, investor, dan pemangku kepentingan lainnya.",
+      "Ya. Berkas hanya dibagikan dengan pendamping terundang. Formulir di sini hanya pratinjau lokal.",
   },
   {
-    question: "Di mana lokasi kantor LEDSONS?",
+    question: "Di mana lokasi kantor?",
     answer:
-      "Jl. Dr. Saharjo No. 96G, Menteng Atas, Setiabudi, Jakarta 12960. Email: info@kjaledsonssolusibisnis.co.id. Telepon: (+62) 021-830-9924 / (+62) 857-1075-1970.",
+      "Jl. Dr. Saharjo No. 96G, Menteng Atas, Setiabudi, Jakarta 12960. Email: info@kjaledsonssolusibisnis.co.id.",
   },
 ] as const;

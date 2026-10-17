@@ -1,24 +1,23 @@
 "use client";
 
+import Image from "next/image";
 import { useId, useState, type KeyboardEvent, type ReactNode } from "react";
 import { Reveal } from "@/components/reveal";
+import { images } from "@/lib/images";
 import { useReducedMotion } from "@/lib/motion";
 
-const TABS = [
+const STEPS = [
   {
-    label: "Visi",
-    title: "Visi perusahaan",
-    body: "KJA PT LEDSONS SOLUSI BISNIS merupakan konsultan yang berlandaskan visi untuk memanfaatkan ilmu pengetahuan dan keahlian yang dimiliki guna memberikan nilai tambah bagi kemajuan klien serta lingkungan masyarakat secara luas. Sebagai salah satu Kantor Jasa Akuntan yang memiliki reputasi baik, berintegritas tinggi, profesional, dan independen, kami menjalankan setiap penugasan dengan mengacu pada ketentuan yang berlaku serta prinsip akuntansi yang berterima umum.",
+    label: "Pembukuan",
+    description: "Catat transaksi rutin dengan tertib.",
   },
   {
-    label: "Misi",
-    title: "Misi perusahaan",
-    body: "1. Turut berkontribusi dalam pembangunan negara melalui penerapan profesionalisme dan independensi sesuai ketentuan dan standar yang berlaku. 2. Memberikan jasa dengan kualitas terbaik sehingga memberikan manfaat nyata bagi para pemangku kepentingan. 3. Memperluas jaringan melalui kerja sama strategis dengan mitra yang relevan dan institusi sejenis. 4. Mengembangkan kompetensi profesional melalui personnel assessment, pendidikan berkelanjutan, serta pelatihan internal maupun eksternal. 5. Mengoptimalkan penggunaan teknologi informasi untuk meningkatkan akurasi dan efektivitas. 6. Memberikan kesempatan bagi mahasiswa atau akuntan pemula untuk menerapkan ilmu secara nyata melalui program pembinaan.",
+    label: "Perpajakan",
+    description: "Kelola pajak agar patuh dan tepat waktu.",
   },
   {
-    label: "Prinsip",
-    title: "Cara kami bekerja",
-    body: "Setiap penugasan dilaksanakan secara independen dan objektif, mengacu pada ketentuan yang berlaku serta prinsip akuntansi yang berterima umum — sehingga mampu memberikan manfaat dan kepercayaan bagi para pengguna jasa. Komitmen kami: hasil yang konsisten, tepat waktu, dan akurat.",
+    label: "Pelaporan",
+    description: "Susun laporan siap untuk keputusan.",
   },
 ] as const;
 
@@ -44,11 +43,11 @@ export function Workflow(): ReactNode {
       event.key === "Home"
         ? 0
         : event.key === "End"
-          ? TABS.length - 1
+          ? STEPS.length - 1
           : (selected +
               (event.key === "ArrowLeft" || event.key === "ArrowUp" ? -1 : 1) +
-              TABS.length) %
-            TABS.length;
+              STEPS.length) %
+            STEPS.length;
     setSelected(next);
     event.currentTarget.parentElement
       ?.querySelectorAll<HTMLButtonElement>('[role="tab"]')
@@ -57,35 +56,32 @@ export function Workflow(): ReactNode {
 
   return (
     <section
-      id="visi-misi"
-      className="mx-auto w-full max-w-360 px-14 py-16 max-[992px]:px-8 max-[768px]:px-6 max-[768px]:py-11 max-[480px]:px-5"
+      id="workflow"
+      className="mx-auto w-full max-w-360 px-14 py-16 [--note-ink:#1c2a4d] [--note-muted:#5a6a8c] [--note:#ffffff] [--scene:#e4eaf6] max-[992px]:px-8 max-[768px]:px-6 max-[768px]:py-11 max-[480px]:px-5 dark:[--note-ink:#e8edf7] dark:[--note-muted:#9fb0cc] dark:[--note:#1f2740] dark:[--scene:#1c2440] data-[reduced=true]:[&_*]:transition-none! motion-reduce:[&_*]:transition-none! [&_:where(button,[tabindex]):focus-visible]:outline-2 [&_:where(button,[tabindex]):focus-visible]:outline-offset-4 [&_:where(button,[tabindex]):focus-visible]:outline-ring"
       aria-labelledby={`${id}-heading`}
       data-reduced={reduced}
     >
       <Reveal>
-        <header className="mx-auto max-w-[680px] text-center max-[768px]:max-w-[570px]">
-          <p className="mb-3 text-[12px] font-medium tracking-[0.12em] text-muted-foreground uppercase">
-            Visi & Misi
-          </p>
+        <header className="mx-auto max-w-[650px] text-center max-[768px]:max-w-[570px]">
           <h2
-            className="mx-auto max-w-[620px] text-[clamp(36px,3.4vw,48px)] leading-[1.2] font-normal tracking-[-0.035em] text-balance max-[992px]:text-[42px] max-[768px]:text-[38px] max-[480px]:text-[34px]"
+            className="mx-auto max-w-[590px] text-[clamp(36px,3.4vw,48px)] leading-[1.2] font-normal tracking-[-0.035em] text-balance max-[992px]:text-[42px] max-[768px]:text-[38px] max-[480px]:text-[34px]"
             id={`${id}-heading`}
           >
-            Landasan yang menjaga kualitas kerja kami.
+            Dari catatan rutin jadi laporan siap.
           </h2>
           <p className="mt-6 text-lg leading-normal tracking-[-0.025em] text-pretty text-muted-foreground max-[768px]:mt-5 max-[768px]:text-base">
-            Profesionalisme dan independensi di setiap penugasan.
+            Catat dengan tertib. Kelola bersama ahlinya.
           </p>
         </header>
         <div
           className="mx-auto mt-8 mb-10 grid w-[min(100%,470px)] grid-cols-3 gap-1 rounded-[100px] bg-muted p-[5px] max-[768px]:mt-7 max-[768px]:mb-8 max-[480px]:gap-[3px] max-[480px]:p-1"
           role="tablist"
-          aria-label="Visi, misi, dan prinsip kerja"
+          aria-label="Ikuti alur layanan"
         >
-          {TABS.map((tab, index) => (
+          {STEPS.map((step, index) => (
             <button
               className="flex min-h-11 items-center justify-center gap-3 rounded-[100px] px-4 py-2.5 text-[15px] leading-[1.3] text-muted-foreground transition-[color,background] duration-200 hover:text-foreground aria-selected:bg-card aria-selected:text-foreground aria-selected:shadow-[0_1px_4px_#0000000a] max-[480px]:min-h-[42px] max-[480px]:gap-[7px] max-[480px]:px-2 max-[480px]:text-[13px]"
-              key={tab.label}
+              key={step.label}
               type="button"
               role="tab"
               id={`${id}-step-${index}`}
@@ -101,7 +97,7 @@ export function Workflow(): ReactNode {
               >
                 0{index + 1}
               </span>
-              {tab.label}
+              {step.label}
             </button>
           ))}
         </div>
@@ -109,22 +105,100 @@ export function Workflow(): ReactNode {
 
       <Reveal>
         <div
-          className="relative isolate min-h-[320px] overflow-hidden rounded-[32px] border border-border bg-card p-10 max-[992px]:p-8 max-[768px]:rounded-3xl max-[768px]:p-7 max-[480px]:p-6"
+          className="relative isolate h-[520px] min-w-0 overflow-hidden rounded-[32px] bg-(--scene) max-[992px]:h-[480px] max-[768px]:h-[420px] max-[768px]:rounded-3xl"
           id={`${id}-stage`}
           role="tabpanel"
           aria-labelledby={`${id}-step-${selected}`}
+          aria-describedby={`${id}-description`}
           tabIndex={0}
         >
-          <p className="text-[12px] font-medium tracking-[0.12em] text-muted-foreground uppercase">
-            0{selected + 1} — {TABS[selected]!.label}
-          </p>
-          <h3 className="mt-3 max-w-[560px] text-[32px] leading-[1.15] font-medium tracking-[-0.035em] max-[768px]:text-[28px] max-[480px]:text-2xl">
-            {TABS[selected]!.title}
-          </h3>
-          <p className="mt-5 max-w-[860px] text-[15px] leading-[1.75] text-muted-foreground">
-            {TABS[selected]!.body}
-          </p>
+          <div
+            className="invisible absolute inset-0 opacity-0 transition-[opacity,visibility] duration-250 data-[active=true]:visible data-[active=true]:opacity-100 [&_img]:object-cover"
+            data-active={selected === 0}
+            aria-hidden={selected !== 0}
+            inert={selected !== 0}
+          >
+            <div className="absolute inset-y-8 left-8 w-[76%] overflow-hidden rounded-[22px] max-[992px]:inset-y-6 max-[992px]:left-6 max-[992px]:w-[78%] max-[992px]:rounded-[20px] max-[768px]:inset-4 max-[768px]:w-auto max-[768px]:rounded-2xl [&_img]:object-[center_57%]">
+              <Image
+                src={images.chair.src}
+                alt={images.chair.alt}
+                fill
+                sizes="(max-width: 767px) 90vw, (max-width: 1440px) 72vw, 1000px"
+              />
+            </div>
+            <div className="absolute right-12 bottom-12 w-[min(34%,390px)] rounded-[18px] bg-(--note) p-8 text-(--note-ink) shadow-[0_8px_28px_#0000000a] max-[992px]:right-8 max-[992px]:bottom-8 max-[992px]:w-[38%] max-[992px]:p-[26px] max-[768px]:right-6 max-[768px]:bottom-6 max-[768px]:w-[min(66%,320px)] max-[768px]:rounded-2xl max-[768px]:p-6 max-[480px]:inset-x-6 max-[480px]:w-auto max-[480px]:p-[22px] [&>p]:mt-[18px] [&>p]:text-4xl [&>p]:leading-[1.1] [&>p]:font-normal [&>p]:tracking-[-0.045em] max-[992px]:[&>p]:text-[30px] max-[768px]:[&>p]:mt-3.5 max-[480px]:[&>p]:text-[29px] [&>span]:text-sm [&>span]:leading-[1.4] [&>span]:text-(--note-muted)">
+              <span>Catatan berjalan</span>
+              <p>
+                Rapi dicatat.
+                <br />
+                Mudah ditelusur.
+              </p>
+            </div>
+          </div>
+
+          <div
+            className="invisible absolute inset-0 opacity-0 transition-[opacity,visibility] duration-250 data-[active=true]:visible data-[active=true]:opacity-100 [&_img]:object-cover [&>img]:object-[center_48%]"
+            data-active={selected === 1}
+            aria-hidden={selected !== 1}
+            inert={selected !== 1}
+          >
+            <Image
+              src={images.courtyard.src}
+              alt={images.courtyard.alt}
+              fill
+              sizes="(max-width: 1440px) 95vw, 1328px"
+            />
+            <figure className="absolute right-12 bottom-12 w-[min(38%,390px)] rounded-[20px] bg-(--note) p-7 text-(--note-ink) shadow-[0_8px_28px_#0000000a] max-[992px]:right-8 max-[992px]:bottom-8 max-[992px]:w-[43%] max-[992px]:p-6 max-[768px]:right-6 max-[768px]:bottom-6 max-[768px]:w-[min(76%,330px)] max-[768px]:rounded-2xl max-[768px]:p-[22px] max-[480px]:inset-x-6 max-[480px]:w-auto">
+              <figcaption className="flex items-center gap-3 text-[15px] leading-[1.4] font-medium max-[480px]:text-sm">
+                <span className="relative size-[38px] shrink-0 overflow-hidden rounded-full bg-muted max-[480px]:size-[34px]">
+                  <Image
+                    src={images.portraitOne.src}
+                    alt=""
+                    fill
+                    sizes="40px"
+                  />
+                </span>
+                <span>Tim LEDSONS</span>
+              </figcaption>
+              <blockquote className="mt-[18px] text-[21px] leading-[1.45] tracking-[-0.025em] max-[992px]:text-[19px] max-[768px]:mt-3.5 max-[768px]:text-lg max-[480px]:text-[17px]">
+                Pajak beres tepat waktu. Anda fokus ke bisnis.
+              </blockquote>
+            </figure>
+          </div>
+
+          <div
+            className="invisible absolute inset-0 opacity-0 transition-[opacity,visibility] duration-250 after:absolute after:inset-0 after:bg-[linear-gradient(90deg,#11190cc7,#11190ca6_60%,#11190c1f)] after:content-[''] data-[active=true]:visible data-[active=true]:opacity-100 max-[768px]:after:bg-[linear-gradient(0deg,#11190ccc,#11190cb3_58%,#11190c14)] [&_img]:object-cover [&>img]:object-[center_53%]"
+            data-active={selected === 2}
+            aria-hidden={selected !== 2}
+            inert={selected !== 2}
+          >
+            <Image
+              src={images.corridor.src}
+              alt={images.corridor.alt}
+              fill
+              sizes="(max-width: 1440px) 95vw, 1328px"
+            />
+            <div className="absolute inset-x-14 bottom-[52px] z-1 text-white max-[992px]:inset-x-10 max-[992px]:bottom-10 max-[768px]:inset-x-8 max-[768px]:bottom-8 max-[480px]:inset-x-7 max-[480px]:bottom-[30px] [&>span]:text-base [&>span]:leading-[1.5] max-[768px]:[&>span]:text-sm">
+              <span>Laporan keuangan</span>
+              <h3 className="mt-5 text-[76px] leading-[1.02] font-normal tracking-[-0.055em] max-[992px]:text-[64px] max-[768px]:text-[56px] max-[480px]:mt-4 max-[480px]:text-[46px]">
+                Siap untuk
+                <br />
+                keputusan.
+              </h3>
+              <p className="mt-5 max-w-[330px] text-base leading-[1.5] max-[768px]:text-sm max-[480px]:mt-[18px] max-[480px]:max-w-[220px]">
+                Jelas, terstruktur, sesuai standar.
+              </p>
+            </div>
+          </div>
         </div>
+        <p
+          className="mx-auto mt-5 min-h-[42px] max-w-[620px] text-center text-sm leading-[1.5] text-muted-foreground"
+          id={`${id}-description`}
+          role="status"
+          aria-atomic="true"
+        >
+          {STEPS[selected]!.description}
+        </p>
       </Reveal>
     </section>
   );
